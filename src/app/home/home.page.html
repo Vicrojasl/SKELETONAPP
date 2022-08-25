@@ -1,20 +1,63 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      SkeletonApp
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card class="ion-text-center">
+    <ion-card-header>
+      <ion-card-subtitle>Usuario : {{userHome}} </ion-card-subtitle>
+      <ion-card-title>Eres Bienvenid@</ion-card-title>
+      <ion-card-subtitle>Informacion adicional</ion-card-subtitle>     
+    </ion-card-header>
+  </ion-card>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+ 
+  <ion-item>
+    <ion-label  position="fixed">Nombre</ion-label>
+    <ion-input placeholder="Ingrese su nombre" [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label  position="fixed">Apellido</ion-label>
+    <ion-input placeholder="Ingrese su apellido" ></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-item>
+      <ion-label  position="fixed">Nivel Edu : </ion-label>
+      <ion-select interface="action-sheet" placeholder="Nivel Educacion">
+        <ion-select-option value="media">Media</ion-select-option>
+        <ion-select-option value="tecnica">Tecnica</ion-select-option>
+        <ion-select-option value="universitaria">Universitaria</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <div>
+    <ion-label  position="fixed">Fecha Nacimiento : </ion-label>
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime"></ion-datetime>
+      </ng-template>
+    </ion-modal>
   </div>
+
+  <div >
+    <ion-button expand="full"  type="submit">Limpiar</ion-button>
+  </div>
+  <div >
+    <ion-button expand="full"  type="submit" (click) = "Mostrar()">Mostrar</ion-button>
+  </div>
+
 </ion-content>
+
+<ion-footer class="ion-text-center" collapse="fade">
+  <ion-toolbar>     
+    <ion-title  size="small"><ion-icon name="logo-linkedin"></ion-icon> <ion-icon name="logo-instagram"></ion-icon>{{value}}</ion-title>
+  </ion-toolbar>
+</ion-footer>
